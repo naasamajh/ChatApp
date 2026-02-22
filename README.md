@@ -25,7 +25,6 @@ ChatApp/
 ├── server.js                          # Express + Socket.IO + static server
 ├── package.json                       # Unified dependencies & scripts
 ├── vite.config.js                     # Vite build config
-├── render.yaml                        # Render deployment blueprint
 ├── index.html                         # Vite HTML entry
 ├── .env                               # Environment variables
 │
@@ -145,28 +144,16 @@ This starts both the Express server (port 5000) and Vite dev server (port 5173) 
 
 ## 🌐 Deploy to Render
 
-### Option 1: Blueprint (Recommended)
+### Manual Deployment Guide
 
 1. Push this repo to GitHub
-2. Go to [Render Dashboard](https://dashboard.render.com)
-3. Click **New → Blueprint**
-4. Connect your repo — Render reads `render.yaml` automatically
-5. Set environment variables in Render dashboard:
-   - `MONGODB_URI`
-   - `JWT_SECRET`
-   - `GROQ_API_KEY`
-   - `ADMIN_EMAIL`
-   - `ADMIN_PASSWORD`
-
-### Option 2: Manual
-
-1. Go to [Render Dashboard](https://dashboard.render.com) → **New → Web Service**
-2. Connect your repo
-3. Configure:
+2. Go to [Render Dashboard](https://dashboard.render.com) → **New → Web Service**
+3. Connect your repo
+4. Configure:
    - **Build Command:** `npm run render-build`
    - **Start Command:** `npm start`
    - **Environment:** `Node`
-4. Add environment variables:
+5. Add environment variables:
    - `NODE_ENV` = `production`
    - `MONGODB_URI` = your MongoDB Atlas connection string
    - `JWT_SECRET` = your secret key
